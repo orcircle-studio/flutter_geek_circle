@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
-  var pressTodo;
+  VoidCallback pressTodo;
 
-  var s;
+  String s;
 
   AnswerButton(this.s, this.pressTodo, {Key? key}) : super(key: key);
 
