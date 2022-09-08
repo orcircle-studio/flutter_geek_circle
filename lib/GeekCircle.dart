@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geek_circle/Question.dart';
 
+import 'AnswerButton.dart';
+
 class GeekCircle extends StatefulWidget {
   const GeekCircle({Key? key}) : super(key: key);
 
@@ -9,8 +11,14 @@ class GeekCircle extends StatefulWidget {
 }
 
 class _GeekCircleState extends State<GeekCircle> {
-  var questions = ["今天晚上吃什么", "今天晚上喝什么", "今天晚上玩什么", "今天晚上玩什么", "今天晚上玩什么"];
+  var questions = ["今天晚上吃什么", "今天晚上喝什么", "今天晚上玩什么", "今天早上玩什么", "今天中午玩什么"];
   var current = 0;
+
+  pressTodo() {
+    setState(() {
+      if (current<questions.length-1)current++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,31 +32,9 @@ class _GeekCircleState extends State<GeekCircle> {
           margin: const EdgeInsets.all(30),
           child: Column(children: [
             Question(text: questions[current]),
-            ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("反光板VCD的风格和")), ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("aa")), ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("aa")), ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("aa")), ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("aa")), ElevatedButton(
-                onPressed: () => setState(() => {
-                      if (current < 4) {current++}
-                    }),
-                child: const Text("aa")),
+            AnswerButton('aaaa', pressTodo),
+            AnswerButton('bbbb', pressTodo),
+            AnswerButton('cccc', pressTodo),
           ]),
         ),
       ),
