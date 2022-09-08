@@ -6,4 +6,4 @@ new IT news
 
 Author is a Full Stack Engineer.
 See Details:
-    [jay's profile](profile.orcircle.com)
+    [jay's profile](http://profile.orcircle.com)
