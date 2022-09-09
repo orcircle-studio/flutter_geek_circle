@@ -13,8 +13,8 @@ class AnswerButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: pressTodo,
-        style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.lightBlueAccent)),
+        style: ElevatedButton.styleFrom(
+            primary: Colors.white, onPrimary: Color(0xff000000)),
         child: Text(s),
       ),
     );

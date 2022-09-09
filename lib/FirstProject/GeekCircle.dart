@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:geek_circle/Question.dart';
 
 import 'AnswerButton.dart';
+import 'Question.dart';
 
 class GeekCircle extends StatefulWidget {
   const GeekCircle({Key? key}) : super(key: key);
@@ -39,20 +39,34 @@ class _GeekCircleState extends State<GeekCircle> {
       appBar: AppBar(
         title: const Text('QuestionSelector'),
         shadowColor: Colors.transparent,
-
+        backgroundColor: Colors.transparent,
       ),
-      backgroundColor: const Color.fromARGB(255, 244, 254, 255),
+      backgroundColor: Color(0xff000000),
       body: Center(
         child: Container(
           margin: const EdgeInsets.all(30),
           child: (_current < questions.length - 1)
-              ? Column(children: [
+              ? ListView(children: [
                   Question(text: questions[_current].keys.first),
                   ...getAnswer(questions, _current, pressTodo)
                 ])
               : Container(
-                  child: Text("恭喜您！！问题完成！！！",style: TextStyle(fontWeight:FontWeight.w600,fontSize: 18,color: Color(
-                      0xFF009696)),),
+                  child: Column(
+                    children: [
+                      const Text("恭喜您！！问题完成！！！",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                              color: Color(0xFF009696))),
+                      ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              _current = 0;
+                            });
+                          },
+                          child: Text("再来一次！"))
+                    ],
+                  ),
                 ),
         ),
       ),
